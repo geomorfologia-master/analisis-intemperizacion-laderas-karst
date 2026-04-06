@@ -1,5 +1,5 @@
 ---
-title: "PA02 · Geomorfometría, reproducibilidad, redacción, estilos de formato, figuras, tablas, citas y referencias<small><br>Geomorfología (GEO-114)<br>Universidad Autónoma de Santo Domingo (UASD)"
+title: "PA03 · Intemperización, denudación, procesos de laderas, geomorfología climática y geomorfología kárstica<small><br>Geomorfología (GEO-114)<br>Universidad Autónoma de Santo Domingo (UASD)"
 author: "El Tali"
 date: "`r format(Sys.Date(), '%Y-%m-%d')`"
 output:
@@ -23,12 +23,17 @@ lang: es
 
 <!-- README.md se genera a partir de README.Rmd. Por favor, edita ese archivo. -->
 
-
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, out.width = '100%', fig.retina = 4)
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  out.width = "100%",
+  fig.retina = 4
+)
 ```
 
-```{r, include=F}
+```{r, include=FALSE}
 output_format <- knitr::opts_knit$get("rmarkdown.pandoc.to")
 repo_url <- system("git config --get remote.origin.url", intern = TRUE)
 repo_name <- sub(".git$", "", basename(repo_url))
@@ -37,29 +42,37 @@ rmd_filename <- tools::file_path_sans_ext(basename(knitr::current_input()))
 github_pages_url <- paste0("https://", org_name, ".github.io/", repo_name, "/", rmd_filename, ".html")
 ```
 
+```{r, results='asis', echo=F}
+if (grepl('gfm', output_format)) {
+  cat('Versión HTML (quizá más legible), [aquí](', github_pages_url, ')\n', sep = '')
+} else if (output_format == 'latex') {
+  cat('Versión HTML (quizá más legible), [aquí](', github_pages_url, ')\n', sep = '')
+}
+```
+
 # Fecha/hora de entrega
 
 [**VER PORTAL DE LA ASIGNATURA**](https://github.com/geomorfologia-202601)
-
 
 ## Objetivos
 
 El objetivo de esta práctica es que demuestres o mejores:
 
-- tus capacidades de **realizar análisis geomorfométricos**;
-- tus capacidades de **usar RMarkdown para producir documentos científicos reproducibles**;
-- tus capacidades de **redacción científica**;
-- tus capacidades de **comunicar resultados de investigación mediante una presentación oral breve**.
+* tus capacidades de **formular una pregunta geomorfológica cuantificable**;
+* tus capacidades de **buscar, obtener y documentar datos reales**;
+* tus capacidades de **integrar información topográfica, geológica, geomorfológica y climática**;
+* tus capacidades de **usar Google Earth Engine en un flujo de trabajo reproducible**;
+* tus capacidades de **redactar y comunicar un manuscrito científico breve**.
 
-Esta práctica tratará sobre **geomorfometría aplicada a un área de la República Dominicana**, intentando que el resultado final sea una **investigación reproducible y bien redactada**.
+Esta práctica tratará sobre **intemperización, procesos de ladera, geomorfología climática y kárstica aplicada a un área de la República Dominicana**, con énfasis en la relación entre procesos, formas, materiales geológicos y contexto ambiental. El resultado final debe aproximarse a una **investigación reproducible, cuantitativa y bien redactada**.
 
-El resultado esperado es un trabajo que cumpla con estándares básicos de comunicación científica: uso apropiado de **figuras, tablas, citas, referencias y estructura de manuscrito**, acompañado de una **presentación oral clara y sintética**.
+Se espera que el trabajo conecte observaciones y mediciones con conceptos discutidos en clase, especialmente sobre **intemperización, denudación, procesos de laderas, geomorfología climática y geomorfología kárstica**.
 
 ---
 
 # Entregables
 
-Debes producir **tres productos obligatorios**:
+Debes entregar **tres productos obligatorios**:
 
 ## 1. Manuscrito reproducible (PDF)
 
@@ -69,31 +82,31 @@ Un manuscrito breve en formato académico generado a partir de **RMarkdown**.
 
 La entrega se realiza mediante **commit + push al repositorio personal** asignado.
 
-Puedes utilizar ...
+Puedes utilizar:
 
-- la plantilla `plantilla.Rmd` del repositorio, o
-- otra plantilla RMarkdown (por ejemplo de `rticles`),
+* la plantilla `plantilla.Rmd` del repositorio, o
+* otra plantilla RMarkdown,
 
-... siempre que el resultado sea un **PDF generado desde RMarkdown** y que mantenga la estructura típica de un manuscrito científico.
+siempre que el resultado sea un **PDF generado desde RMarkdown** y que mantenga la estructura típica de un manuscrito científico.
 
 ### Estructura mínima
 
 El manuscrito debe incluir:
 
-- Título
-- Autor/a
-- Resumen y palabras clave
-- Introducción (contexto conceptual, problemas, justificación, preguntas, hipótesis, objetivos)
-- Materiales y métodos (procedimientos, técnicas, herramientas, datos utilizados)
-- Resultados (tablas, figuras)
-- Discusión (cumplimiento de objetivos rechazo o no de hipótesis, interpretación, limitaciones, perspectivas de futuro)
-- Conclusiones
-- Referencias
-- Opcional: información suplementaria.
+* Título
+* Autor/a
+* Resumen y palabras clave
+* Introducción
+* Materiales y métodos
+* Resultados
+* Discusión
+* Conclusiones
+* Referencias
+* Opcional: información suplementaria
 
 Las **figuras y tablas deben tener título y referencia cruzada dentro del texto**.
 
-**Extensión sugerida:** 4–8 páginas (sin contar referencias).
+**Extensión sugerida:** 5–8 páginas (sin contar referencias).
 
 ---
 
@@ -103,118 +116,201 @@ Debes preparar una presentación breve para explicar tu trabajo.
 
 Formato recomendado:
 
-- 8–10 diapositivas
-- claridad visual
-- poco texto
+* 8–10 diapositivas
+* claridad visual
+* poco texto
 
-Las diapositivas pueden seguir la estructura IMRaD, pero no es obligatorio. Este es un esquema tradicional:
-
-- Título y autor/a
-- Introducción
-- Materiales y métodos
-- Resultados
-- Discusión
-- Conclusiones  
+Puedes usar una estructura IMRaD o cualquier otra estructura lógica que permita comunicar con claridad el problema, los datos, el método y los resultados.
 
 ---
 
 ## 3. Defensa oral
 
-Cada estudiante realizará una **exposición oral de 17 minutos**.
+Cada estudiante realizará una **exposición oral breve** en clase.
 
 La defensa debe explicar al menos lo siguiente:
 
-- problema de investigación
-- metodología
-- evidencia principal
-- interpretación de resultados
-- limitaciones
-- conclusiones
+* problema de investigación
+* área de estudio
+* datos empleados
+* metodología
+* resultados principales
+* interpretación geomorfológica
+* limitaciones
+* conclusiones
 
-El objetivo no es repetir el manuscrito completo, sino **explicar el argumento central del trabajo**. Reitero: no es obligatorio seguir la estructrua IMRaD, pero si te da confianza, puedes usarla.
+La presentación no debe ser una reproducción del manuscrito completo en diapositivas, sino más bien debe centrarse en **explicar el o los argumentos fundamentales del trabajo, apoyándose una presentación ligera sobre materiales y métodos, resultados, interpretación y limitaciones**.
 
 ---
 
 # Mandato de la práctica
 
-## Selección del área de estudio
+## Tema general
 
-Usando el **DEM del Shuttle Radar Topography Mission (SRTM)** recortado para un municipio, aplica una técnica geomorfométrica.
+Debes desarrollar una **investigación práctica con enfoque cuantitativo** sobre un caso de geomorfología en la República Dominicana, enmarcado en **uno** de los siguientes ejes:
 
-Los archivos se encuentran en la carpeta `data/`.
+* **Intemperización y denudación**
+* **Procesos de laderas**
+* **Geomorfología kárstica**
+* **Geomorfología climática**
 
-Debes elegir **un municipio por su número** y anunciarlo en el foro.
+El tema específico lo eliges tú, pero recuerda que no vale con reservar un tópico concreto, debes convertir tu tema en una **pregunta clara, concreta y medible**.
 
-```{r, eval=TRUE, echo=FALSE}
-library(tidyverse)
-library(kableExtra)
-
-archivos <- list.files(path = "data", pattern = "*.tif")
-
-set.seed(99)
-
-m <- archivos[sample(1:length(archivos), 20)]
-estudiante <- 1:20
-
-df <- data.frame(estudiante, nombre_archivo = m)
-
-df %>% kableExtra::kable()
-```
+No se aceptarán trabajos puramente descriptivos ni trabajos en los que el tema no pueda traducirse en variables observables o analizables espacialmente.
 
 ---
 
-## Selección de técnica geomorfométrica
+## Condiciones obligatorias
 
-Debes elegir **una técnica geomorfométrica** basada en @hengl2009geomorphometry.
+En tu trabajo deberás usar **sí o sí** (salvo excepciones justificadas) las siguientes fuentes o tipos de información:
 
-Ejemplos de grupos de técnicas:
+1. **Un DEM** para derivar variables topográficas o geomorfométricas.
+2. **Mapa geológico del Servicio Geológico Nacional**, preferiblemente a escala **1:50,000**; si no resulta viable para tu zona o pregunta, puedes usar además o en su lugar apoyo de escala **1:250,000**.
+3. **Mapa geomorfológico del Servicio Geológico Nacional** a escala **1:100,000**.
+4. **Google Earth Engine**, obligatoriamente, para obtener al menos una fuente adicional de datos o para realizar parte del procesamiento.
+5. Fuentes bibliográficas tradicionales y recientes, tanto de geomorfología general, como las propias de la disciplina o tema específico.
 
-### Parámetros básicos del terreno
+No se proporcionarán datos listos para usar. En esta ocasión, **cada estudiante debe generar y documentar su propio conjunto de datos**.
 
-Capítulo 6.
+- IMPORTANTE. Es necesario que conciertes previamente tus preguntas, objetivos, hipótesis, así como el o los dataset que usarás.
+
+---
+
+## Selección del área de estudio
+
+Puedes elegir libremente un área de estudio dentro de la República Dominicana, siempre que la justifiques geomorfológicamente.
+
+Puede tratarse de:
+
+* un municipio;
+* una subcuenca o cuenca;
+* un valle;
+* una sierra;
+* un sector kárstico;
+* una ladera o conjunto de laderas;
+* o cualquier unidad territorial que te ayude a responder tu(s) pregunta(s) o a satisfacer tu(s) objetivo(s) de investigación.
+
+La delimitación del área debe ajustarse a los criterios de disponibilidad de datos.
+
+---
+
+## Selección del problema de investigación
+
+Debes elegir un problema que pueda analizarse mediante relaciones entre relieve, materiales, formas, procesos y variables ambientales.
+
+Ejemplos orientativos, no obligatorios:
+
+* relación entre **pendiente, curvatura y litología** en áreas con procesos de laderas;
+* contraste geomorfológico entre unidades sobre **calizas** y unidades sobre **rocas no carbonatadas**;
+* distribución de **dolinas, depresiones cerradas o rugosidad** en paisajes kársticos;
+* relación entre **precipitación**, relieve y evidencia indirecta de denudación (de esto ya hubo un trabajo previo desde la geomorfometría en la PA02, pero en este caso se requeriría disponer de evidencia indirecta denudación, tales como profundidades de perfiles de alteración, tasas de transporte de sedimentos, perfiles de suelo u otras formas de evidencias parecidas);
+* comparación de variables geomorfométricas de laderas entre distintas **unidades geomorfológicas**;
+* comparación de variables geomorfométricas entre distintas unidades o subunidades de karst;
+* análisis espacial de condiciones topográficas asociadas a **susceptibilidad a movimientos de ladera**;
+* influencia del relieve y del contexto climático sobre formas o patrones del paisaje;
+* otros temas relacionados con inteperización/denudación, procesos de laderas, geomorfología climática y/o geomorfología kárstica.
+
+Reitero. Puedes proponer otro tema, siempre que esté dentro del marco del tema 3 y que tenga un enfoque cuantitativo claro.
+
+---
+
+## Requisitos mínimos del análisis
+
+Salvo que se justifique debidamente, tu trabajo debe incluir, como mínimo, lo siguiente:
+
+### 1. Variables derivadas del DEM
+
+Debes derivar del DEM **al menos tres variables** pertinentes a tu problema.
 
 Ejemplos:
 
+* elevación
 * pendiente
+* orientación
 * curvatura
-* índice de rugosidad topográfica
-
-### Parámetros hidrológicos
-
-Capítulo 7.
-
-Ejemplos:
-
+* rugosidad
+* relieve local
+* índice topográfico de humedad
 * acumulación de flujo
-* dirección de drenaje
+* densidad de drenaje
+* posición topográfica
+* depresiones cerradas
 
-### Parámetros topoclimáticos
+No se trata de calcular variables por llenar espacio, sino de elegir variables que tengan sentido para la pregunta planteada.
 
-Capítulo 8.
+### 2. Integración con cartografía geológica
 
-Ejemplos:
+Debes usar el mapa geológico del Servicio Geológico Nacional para incorporar, al menos, uno de estos aspectos:
 
-* orientación de vertiente
-* distancia a la costa
+* litología;
+* unidades geológicas;
+* contactos;
+* distribución espacial de materiales;
+* contraste entre dominios geológicos.
 
-### Formas del relieve
+Debes explicar por qué esta información es relevante para el fenómeno analizado.
 
-Capítulo 9.
+### 3. Integración con cartografía geomorfológica
 
-Ejemplos:
+Debes usar el mapa geomorfológico del Servicio Geológico Nacional para:
 
-* geomórfonos
-* detección de depresiones
-* extracción de piedemontes
+* contextualizar el relieve;
+* comparar tus resultados con unidades geomorfológicas mapeadas;
+* o usar esas unidades como base de zonificación para el análisis.
 
-Puedes usar:
+No basta con poner el mapa como fondo. Debe tener una función real en el análisis o en la interpretación.
 
-* software SIG (QGIS, GRASS GIS),
-* R,
-* Python,
-* o cualquier herramienta que domines.
+### 4. Uso obligatorio de Google Earth Engine
 
-Puedes usar **inteligencia artificial como apoyo**, pero no como sustituto del análisis.
+Debes usar **Google Earth Engine** para obtener al menos una fuente adicional o para ejecutar parte del análisis.
+
+Ejemplos de datos o productos que podrías obtener allí:
+
+* precipitación;
+* temperatura de superficie;
+* cobertura terrestre;
+* vegetación;
+* humedad;
+* imágenes ópticas;
+* variables climáticas;
+* series temporales;
+* productos hidrológicos;
+* sombreado o apoyo para fotointerpretación.
+
+Debes documentar qué colección o producto usaste y para qué lo empleaste.
+
+### 5. Análisis cuantitativo
+
+Debes realizar al menos **un análisis cuantitativo explícito**, por ejemplo:
+
+* estadísticas descriptivas por unidades;
+* comparación entre grupos o clases;
+* correlaciones;
+* tablas de contingencia;
+* análisis zonal;
+* perfiles;
+* relaciones espaciales entre variables;
+* clasificación simple;
+* índice compuesto;
+* alguna modelación básica, si aplica.
+
+El énfasis está en que haya una **pregunta geomorfológica** y una **forma cuantitativa de responderla**.
+
+---
+
+# Fundamentación conceptual del trabajo
+
+Esta práctica debe apoyarse en el contenido teórico del tema 3 y en los textos de referencia de la asignatura.
+
+Se espera que el estudiante relacione su caso de estudio con ideas como:
+
+* la producción y remoción de regolito mediante **intemperización** y **denudación**;
+* el papel de la **litología**, la estructura y el relieve en el control de procesos;
+* la dinámica de **laderas**, incluyendo factores predisponentes y condicionantes topográficos;
+* la influencia del **clima** en la organización del relieve y en la eficacia relativa de procesos geomorfológicos;
+* la especificidad de los paisajes **kársticos**, donde la disolución, la infiltración y la estructura de las rocas carbonatadas tienen un papel central.
+
+No se trata de copiar teoría, sino de **usar conceptos para interpretar resultados**.
 
 ---
 
@@ -226,10 +322,11 @@ Extensión sugerida: **3 párrafos**.
 
 Debes:
 
-* explicar qué es la geomorfometría;
-* explicar el parámetro o técnica seleccionada;
-* justificar su importancia;
-* plantear los objetivos del trabajo.
+* presentar el problema geomorfológico elegido;
+* ubicarlo dentro de uno de los cuatro ejes temáticos de la práctica;
+* justificar su importancia científica o aplicada;
+* explicar brevemente las variables o relaciones que estudiarás;
+* plantear tu objetivo general y, si procede, objetivos específicos o una hipótesis de trabajo.
 
 La introducción debe incluir **al menos tres citas bibliográficas**.
 
@@ -237,13 +334,24 @@ La introducción debe incluir **al menos tres citas bibliográficas**.
 
 ## Materiales y métodos
 
-Extensión sugerida: **2 párrafos**.
+Extensión sugerida: **2–3 párrafos**.
 
 Debes describir:
 
-* el DEM SRTM utilizado;
-* las herramientas empleadas (software y hardware);
-* el algoritmo o técnica geomorfométrica aplicada.
+* el área de estudio;
+* el DEM utilizado;
+* la fuente y escala del mapa geológico;
+* la fuente y escala del mapa geomorfológico;
+* los productos o colecciones usados en Google Earth Engine;
+* el software empleado;
+* las variables derivadas;
+* el procedimiento analítico.
+
+Debes dejar claro:
+
+* cómo obtuviste los datos;
+* cómo los procesaste;
+* y cómo llegaste al resultado final.
 
 No adelantes resultados en esta sección.
 
@@ -252,6 +360,7 @@ Si incluyes:
 * diagramas metodológicos,
 * esquemas,
 * tablas,
+* o flujos de trabajo,
 
 deben referirse mediante **referencias cruzadas**.
 
@@ -259,24 +368,45 @@ deben referirse mediante **referencias cruzadas**.
 
 ## Resultados
 
-Extensión sugerida: **1 párrafo**.
+Extensión sugerida: **1–2 párrafos**.
 
-Debes presentar el **resultado geomorfométrico obtenido**.
+Debes presentar:
 
-No incluyas interpretaciones extensas; eso corresponde a la discusión.
+* los mapas generados;
+* las tablas o gráficos principales;
+* los valores, patrones o contrastes más importantes;
+* las salidas cuantitativas que respondan a tu pregunta.
+
+No conviertas esta sección en discusión extensa. Aquí debes **mostrar lo encontrado**.
 
 ---
 
 ## Discusión
 
-Extensión sugerida: **2 párrafos**.
+Extensión sugerida: **2–3 párrafos**.
 
 Debes:
 
-* indicar si alcanzaste los objetivos;
-* interpretar el resultado;
-* discutir limitaciones;
+* indicar si alcanzaste tu objetivo;
+* interpretar geomorfológicamente los resultados;
+* relacionarlos con la teoría del tema 3;
+* comentar el papel de la litología, el relieve, el clima o la geomorfología regional, según el caso;
+* discutir limitaciones de datos, escala, resolución o método;
 * plantear posibles extensiones futuras.
+
+La discusión debe ir más allá de repetir resultados. Debe responder a la pregunta: **¿qué significan geomorfológicamente estos hallazgos?**
+
+---
+
+## Conclusiones
+
+Extensión sugerida: **1 párrafo**.
+
+Debes cerrar el trabajo con una síntesis breve de:
+
+* el problema abordado;
+* el principal hallazgo;
+* y la utilidad de tu aproximación.
 
 ---
 
@@ -286,356 +416,94 @@ Todas las referencias citadas deben aparecer en la sección final.
 
 Debes utilizar **formato APA 7** mediante **BibTeX**.
 
----
+Incluye las referencias de:
 
-# Recomendaciones de redacción
-
-Usa una voz (activa o pasiva) de forma consistente.
-
-Ejemplos:
-
-**Voz activa**
-
-* Analicé los datos utilizando R.
-* Los resultados muestran una relación clara.
-
-**Voz pasiva**
-
-* Los datos fueron analizados utilizando R.
-* Se observó una relación significativa.
-
-Ambas formas son aceptables en redacción científica.
+* los textos teóricos que uses;
+* los datasets;
+* los mapas oficiales;
+* los productos de Google Earth Engine;
+* y cualquier algoritmo, software o metodología citados.
 
 ---
 
-## Uso de inteligencia artificial
+# Recomendaciones para elegir bien el tema
+
+Conviene que elijas un tema que cumpla estas condiciones:
+
+* que puedas resolver en el tiempo disponible;
+* que permita combinar relieve, geología y geomorfología;
+* que tenga una salida cartográfica clara;
+* que pueda expresarse con al menos una tabla o gráfico cuantitativo;
+* que no dependa de trabajo de campo obligatorio.
+
+En esta práctica, **menos alcance y más claridad** suele dar mejores resultados que intentar abarcar demasiado.
+
+---
+
+# Uso de inteligencia artificial
 
 Está permitido utilizar herramientas de IA.
 
 Sin embargo:
 
-* úsala como **tutor**, no como redactor;
-* verifica todos los conceptos;
+* úsala como **tutor**, no como sustituto del trabajo;
+* verifica conceptos, escalas, nombres de datasets y referencias;
 * no copies texto sin revisarlo;
-* nunca confíes ciegamente en referencias generadas por IA.
+* no delegues en la IA la formulación completa del análisis sin comprenderlo.
+
+La prioridad es que puedas **explicar y defender** cada decisión tomada.
 
 ---
 
-# Organización del trabajo (3 días)
+# Organización sugerida del trabajo
 
-## Día 1 — Selección y análisis
+## Día 1 — Delimitación y diseño
 
-* elegir el municipio
-* elegir la técnica geomorfométrica
-* generar el producto principal (mapa o variable)
+* elegir tema;
+* formular pregunta;
+* definir área de estudio;
+* localizar y reunir datos base;
+* explorar qué usarás en Google Earth Engine.
 
-Avanzar:
+## Día 2 — Procesamiento y análisis
 
-* figuras
-* tablas
-* materiales y métodos
+* derivar variables desde el DEM;
+* integrar geología y geomorfología;
+* ejecutar el análisis cuantitativo;
+* producir mapas, tablas y gráficos.
 
----
+## Día 3 — Redacción y presentación
 
-## Día 2 — Redacción del manuscrito
-
-Redactar:
-
-* introducción
-* materiales y métodos
-* resultados
-* discusión
-* conclusiones
-
-Preparar:
-
-* figuras finales
-* tablas finales
-
----
-
-## Día 3 — Presentación
-
-Completar:
-
-* manuscrito final
-* diapositivas
-
-Realizar:
-
-* defensa oral en clase.
+* redactar el manuscrito;
+* revisar citas, figuras y tablas;
+* preparar diapositivas;
+* ensayar la defensa oral.
 
 ---
 
 # Criterios de evaluación del manuscrito
 
-| Criterio                  | Nivel 1                | Nivel 2                   | Nivel 3              | Nivel 4                 |
-| ------------------------- | ---------------------- | ------------------------- | -------------------- | ----------------------- |
-| Análisis geomorfométrico  | Análisis incorrecto    | Análisis básico           | Análisis correcto    | Análisis exhaustivo     |
-| Uso de software           | Uso limitado           | Uso adecuado              | Buen manejo          | Manejo avanzado         |
-| Redacción científica      | Redacción deficiente   | Redacción clara           | Redacción fluida     | Redacción excelente     |
-| Estructura del manuscrito | Estructura incorrecta  | Estructura básica         | Buena organización   | Organización impecable  |
-| Figuras y tablas          | Ausentes o incorrectas | Uso básico                | Buena integración    | Integración excelente   |
-| Citas y referencias       | Incorrectas            | Algunas correctas         | Mayormente correctas | Uso perfecto de APA     |
-| Reproducibilidad          | No reproducible        | Parcialmente reproducible | Bien documentado     | Totalmente reproducible |
+| Criterio                      | Nivel 1                             | Nivel 2                   | Nivel 3           | Nivel 4                                                                           |
+| ----------------------------- | ----------------------------------- | ------------------------- | ----------------- | --------------------------------------------------------------------------------- |
+| Planteamiento del problema    | Problema confuso o no cuantificable | Problema aceptable        | Problema claro    | Problema muy claro, bien justificado y pertinente                                 |
+| Uso de datos reales           | Uso insuficiente o incorrecto       | Uso básico                | Uso adecuado      | Uso sólido, bien documentado y pertinente                                         |
+| Integración geomorfológica    | Integración débil                   | Integración parcial       | Buena integración | Integración excelente entre relieve, geología, geomorfología y contexto ambiental |
+| Uso de Google Earth Engine    | Ausente o incorrecto                | Uso mínimo                | Uso adecuado      | Uso claro, útil y bien documentado                                                |
+| Análisis cuantitativo         | Muy débil                           | Básico                    | Correcto          | Sólido y bien orientado al problema                                               |
+| Interpretación geomorfológica | Superficial                         | Aceptable                 | Correcta          | Profunda y conceptualmente bien sustentada                                        |
+| Redacción científica          | Deficiente                          | Clara                     | Buena             | Muy clara, precisa y bien organizada                                              |
+| Reproducibilidad              | No reproducible                     | Parcialmente reproducible | Reproducible      | Muy bien documentado y plenamente reproducible                                    |
 
 ---
 
 # Criterios de evaluación de la presentación oral
 
-| Criterio                     | Nivel 1               | Nivel 2              | Nivel 3                | Nivel 4                       |
-| ---------------------------- | --------------------- | -------------------- | ---------------------- | ----------------------------- |
-| Claridad de la exposición    | Difícil de seguir     | Comprensible         | Clara                  | Muy clara y bien estructurada |
-| Uso de diapositivas          | Diapositivas confusas | Uso básico           | Buen apoyo visual      | Excelente diseño visual       |
-| Explicación del método       | Poco clara            | Parcial              | Correcta               | Muy bien explicada            |
-| Interpretación de resultados | Ausente               | Básica               | Adecuada               | Profunda                      |
-| Manejo del tiempo            | Fuera del tiempo      | Ligeramente fuera    | Ajustado               | Perfectamente ajustado        |
-| Capacidad de defensa         | No responde           | Respuestas limitadas | Responde correctamente | Argumenta con claridad        |
-
-
-
-
-
-
-
-
-<!-- # Objetivos -->
-
-<!-- El objetivo de esta práctica de desarrollo es que demuestres o mejores ... a) tus capacidades de realizar análisis geomorfométricos; b) tus capacidades de usar software de procesamiento de texto en RStudio; c) tus capacidades de redacción. Esto te preparará, a futuro, para el manuscrito.  -->
-
-<!-- Esta práctica tratará **sobre geomorfometría de un área de República Dominicana**, intentando que sea una investigación reproducible y bien redactada. Lo ideal es que presentes un un documento que cumpla con estilos de formato, uso apropiado de figuras, tablas, citas y referencias. -->
-
-<!-- # Mandato -->
-
-<!-- 1. Usando el DEM del Shuttle Radar Topography Mission (SRTM) recortado para un municipio, aplica una técnica geomorfométrica que elegirás (en el siguiente punto te explico más). Los archivos se encuentran en la carpeta [data/](data/). Debes elegir un municipio por su número y anunciarlo en el foro. -->
-
-<!-- ```{r, eval=T, echo=F, warning=F, message=F} -->
-<!-- library(tidyverse) -->
-<!-- library(kableExtra) -->
-<!-- archivos <- list.files(path = 'data', pattern = '*.tif') -->
-<!-- set.seed(99); m <- archivos[sample(1:length(archivos), 20)] -->
-<!-- estudiante <- 1:20 -->
-<!-- df <- data.frame(estudiante, nombre_archivo = m, check.names = F) -->
-<!-- df %>% kableExtra::kable() -->
-<!-- ``` -->
-
-<!-- 2. Elige una técnica geomorfométrica de @hengl2009geomorphometry y aplícasela a tu DEM. Al hacerlo, obtendrás una característica, variable o parámetro del relieve; por ejemplo, si aplicas la técnica "Geomórfonos" obtendrás una clasificación del relieve. Usa todos los apoyos que necesites, desde el software SIG que mejor conozcas (recomiendo QGIS y GRASS GIS), hasta inteligencia artificial (IA). Si usas IA, no le pidas que te resuelva el ejercicio pasándole el mandato tal cual y luego copiando pegando. Más bien, pídele que te explique cómo resolverlo y hazlo por tu cuenta (modo tutor). -->
-
-<!-- Revisa demostraciones y aplicaciones de geomorfometría en @hengl2009geomorphometry. Estos son los grupos de  técnicas que se encuentran en el libro, pero debes leer en el interior del libro para enterarte mejor (puedes elegir otras que no se encuentren en esta lista y que conozcas mejor; sólo consúltalo conmigo antes de tomar la decisión): -->
-
-<!-- - Parámetros básicos de la superficie del terreno (locales y regionales). Capítulo 6 de @hengl2009geomorphometry. Por ejemplo, pendiente, curvatura, índice de rugosidad topográficas, etc. -->
-
-<!-- - Parámetros de la superficie del terreno y objetos hidrológicos. Capítulo 7 de @hengl2009geomorphometry. Por ejemplo, acumulación de flujo, dirección de drenaje. -->
-
-<!-- - Parámetros de la superficie del terreno para topoclimas. Capítulo 8 de @hengl2009geomorphometry. Por ejemplo, orientación de vertiente, distancia a la costa. -->
-
-<!-- - Formas y formas elementales. Capítulo 9 de @hengl2009geomorphometry. Por ejemplo, clasificación del relieve por geomórfonos, extracción de depresiones, extracción de piedemontes. -->
-
-<!-- 3. Redacta un miniensayo, basándote en la plantilla `plantilla.Rmd` que se encuentra en este mismo repositorio. Para hacerlo, deberás aceptar la práctica desde el portal de la asignatura (ve al [portal de la asignatura](https://github.com/geomorfologia-202601)), haz clic en el enlace de la práctica, acepta la asignación y luego clona tu repo en RStudio. Deberás usar estilos de formato (los títulos debidamente escritos), referencias bibliográficas, referencias cruzadas a figuras y tablas (es decir, necesitarás que las figuras y tablas tengan título o "*caption*"). No podrás desarrollar tu redacción usando listas de viñetas ni listas numeradas. Recuerda usar la plantilla mencionada. Distribuye tu texto en las siguientes secciones: -->
-
-<!-- - **Introducción** (tamaño recomendado: 3 párrafos). Desde lo amplio, comienza escribiendo sobre geomorfometría (qué es). A continuación, explica en qué consiste el parámetro que has elegido, su importancia, por qué es necesario calcularlo, para qué se usa. Plantea tu o tus objetivos, que en este caso son bastante sencillos. Cierra con la importancia que reviste obtener el parámetro o rasgo geomorfométrico que has elegido respecto del conjunto de la ciencia. -->
-
-<!--     - Dentro de esta sección, debes incluir al menos tres citas. Los conceptos y afirmaciones ajenas, deben citarse bibliográficamente, y nunca deberás usar cita literal, pues se considera plagio. Las citas bibliográficas que incluyas, deberán respaldarse por sus correspondientes cuyas referencias, que deberán aparecer en la sección final (Referencias). Las citas y la lista de referencias, deberán seguir el estándar APA 7ma edición (APA7), que es el que la propia plantilla tiene configurado por defecto; en principio, no tendrás que ocuparte de todos los detalles de sintaxis del formato APA7, pero no debes confiar ciegamente en lo que hace RMarkdwon. -->
-
-<!-- - **Materiales y métodos** (tamaño recomendado: 2 párrafos). Explica cómo obtuviste los datos que usaste, y documenta en qué consiste la fuente. Arriba te especifiqué que se trata del DEM SRTM, pero debes describirlo y citar fuentes. Debes igualmente citar el software y hardware usado, y las referencias sobre la técnica o algoritmo empleados. Dentro de la redacción, debes incluir al menos dos citas. Si incluyes un diagrama de flujo metodológico ("metodología gráfica"), te resultará más fácil explicar tu metodología. **No adelantes resultados, sólo escribe que fuentes y herramientas usaste (materiales) y qué técnicas concretas o algoritmos utilizaste (métodos)**. Toda figura y tabla que insertes debe citarse con referencia cruzada, que básicamente se construyen con (más instrucciones en el aula, por vídeos o por el foro). Usa un sistema de referencia cruzada asistido por el procesador de texto que uses (pregunta a tu tutor de inteligencia artificial de preferencia cómo insertar títulos a tablas y figuras, y cómo referirlos en el texto; también pregúntale cómo insertar y referir fórmulas). -->
-
-<!-- - **Resultados** (tamaño recomendado: 1 párrafo). El parámetro o variable morfométrica que obtuviste, presentándolo en sus respectivas componentes. No hagas valoraciones en esta sección, simplemente incluye el resultado obtenido. -->
-
-<!-- - **Discusión** (tamaño recomendado: 2 párrafos). Abre la discusión indicando si alcanzaste tus objetivos. Describe por qué era importante alcanzarlos. Comenta sobre las limitaciones, de cualquier tipo, ya sea las limitaciones de los datos, de la técnicas, de los objetivos de aprendizaje. Cierra indicando qué desafíos futuros quedan abiertos tras este trabajo. -->
-
-<!-- - **Referencias**. Las referencias que hayas citado en el texto, se incluirán automáticamente en la sección "Referencias". No obstante, debes verificar la integridad de las mismas. -->
-
-<!-- > **RECUADRO: recomendaciones básicas de redacción** -->
-<!-- >  -->
-<!-- > Usa una voz (activa o pasiva) de forma consistente, pero sólo ten presente que la redacción de manuscritos científicos a menudo se utilizan ambas voces, dependiendo del contexto y el mensaje que el/la autor/a quiera transmitir. Veamos algunos ejemplos: -->
-<!-- >  -->
-<!-- > **Voz activa en manuscrito científicos:** -->
-<!-- >  -->
-<!-- > - **Analicé** los datos utilizando el software R. -->
-<!-- >  -->
-<!-- > - El experimento **mostró** que la temperatura afecta directamente la tasa de reacción. -->
-<!-- >  -->
-<!-- > - Los investigadores **encontraron** una correlación significativa entre las dos variables. -->
-<!-- >  -->
-<!-- > La voz activa puede hacer que la redacción parezca más directa y clara, y es especialmente útil cuando el/la autor/a quiere enfatizar quién llevó a cabo una acción o cuándo se desea hacer una afirmación fuerte. -->
-<!-- >  -->
-<!-- > **Voz pasiva en artículos científicos:** -->
-<!-- >  -->
-<!-- > - Los datos **fueron analizados** utilizando el software R. -->
-<!-- >  -->
-<!-- > - **Se observó** que la temperatura afecta directamente la tasa de reacción. -->
-<!-- >  -->
-<!-- > - Una correlación significativa **fue encontrada** entre las dos variables. -->
-<!-- >  -->
-<!-- > La voz pasiva es común en la redacción científica porque a menudo se prefiere un tono más impersonal, enfocando la atención en los resultados y procedimientos en lugar de en quienes llevaron a cabo la investigación. También puede ser útil cuando no se quiere o no es relevante especificar quién realizó la acción. -->
-<!-- >  -->
-<!-- > **En todas mis prácticas, está completamente permitido usar IA (e.g. chatGPT), pero te recomiendo que la uses más como tutor que como redactor**. Tal como te sugerí arriba, no le pidas que te resuelva los problemas del mandato. Pídele que te dé ideas, y que luego tú las mejores o las descartes. No abuses tampoco del texto, pues mucha redacción no siempre es mejor; en redacción de ensayos "menos es más". Cruza las redacciones que te ofrezca con tu conocimiento, y revisa si los términos o conceptos usados son descabellados (toda IA se inventa cosas, cuidate de no caer en esa trampa). Nunca le pidas referencias bibliográficas, porque se va equivocar. -->
-
-
-<!-- ## Criterios de evaluación y escala de valoración -->
-
-<!-- | Criterio                          | Nivel 1 (En Desarrollo) | Nivel 2 (Aceptable) | Nivel 3 (Bueno) | Nivel 4 (Excelente) | -->
-<!-- |-----------------------------------|-------------------------|---------------------|-----------------|---------------------| -->
-<!-- | **Análisis Geomorfométricos**     | Análisis incompleto o incorrecto de los datos geomorfométricos. | Análisis básico y correcto de los datos geomorfométricos. | Análisis detallado y correcto de los datos geomorfométricos. | Análisis exhaustivo y avanzado de los datos geomorfométricos. | -->
-<!-- | **Uso de Software**               | Uso limitado y con errores del software de procesamiento de texto y SIG. | Uso adecuado del software de procesamiento de texto y SIG. | Buen manejo del software de procesamiento de texto y SIG, con algunas características avanzadas. | Excelente manejo del software de procesamiento de texto y SIG, incluyendo características avanzadas. | -->
-<!-- | **Redacción y Estilo**            | Redacción pobre con numerosos errores gramaticales y de estilo. | Redacción clara con algunos errores gramaticales y de estilo. | Redacción fluida y coherente con pocos errores gramaticales. | Redacción impecable y elegante sin errores gramaticales. | -->
-<!-- | **Formato y Estructura**          | Formato y estructura incorrectos o ausentes. | Formato y estructura básicos y mayormente correctos. | Buen formato y estructura, con adecuada organización del documento. | Excelente formato y estructura, con organización perfecta del documento. | -->
-<!-- | **Uso de Figuras y Tablas**       | Uso inadecuado o ausente de figuras y tablas. | Uso básico y correcto de figuras y tablas. | Uso adecuado de figuras y tablas, con buena integración en el texto. | Uso excelente de figuras y tablas, perfectamente integradas en el texto. | -->
-<!-- | **Citas y Referencias**           | Citas y referencias inadecuadas o incorrectamente formateadas. | Citas y referencias adecuadas con algunos errores de formato. | Citas y referencias bien utilizadas y mayormente en el formato correcto. | Uso ejemplar de citas y referencias, perfectamente formateadas según APA 7ma edición. | -->
-<!-- | **Reproducibilidad del Análisis** | Análisis no reproducible o con instrucciones poco claras. | Análisis mayormente reproducible con algunas instrucciones claras. | Análisis bien documentado y reproducible con instrucciones detalladas. | Análisis perfectamente documentado y totalmente reproducible con instrucciones claras y completas. | -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- ¿Qué entregar? -->
-
-<!-- * **Manuscrito**. La entrega del manuscrito se realiza en PDF generado a partir de RMarkdown, y por medio del repositorio personal haciendo (commit + push), siguiendo el flujo usual de la asignatura. Dispones de una plantilla RMarkdown (archivo `plantilla.Rmd`) en el repo, con el cual podrás crear tu PDF, pero puedes usar otras plantillas, siempre que generes tu PDF a partir de un RMarkdown, y siempre que tenga estructura típica de manuscrito (Título, Autor/a + Matrícula, Resumen, Introducción, Materiales y Métodos, Resultados, Discusión, Conclusiones, Referencias, Información Suplementaria). Muchas revistas científicas tienen plantillas RMarkdown a través del paquete rticles; puedes usar alguna de esas plantillas si lo deseas yendo al menú `File > New File > R Markdown... > From Template`. -->
-<!-- * **Diapositivas**. -->
-<!-- * **Defensa oral (en clase)**. -->
-
-<!-- # Introducción -->
-
-<!-- Esta práctica inaugura la asignatura y está diseñada para que el estudiantado construya una base sólida en los **fundamentos conceptuales**, las **bases geológicas/estructurales**, y la noción de **tiempo en geomorfología**, tal como se plantea en la **Unidad 1**. -->
-
-<!-- A diferencia de una práctica de “ejercicios sueltos”, aquí trabajaremos bajo un esquema de **práctica integradora (taller + defensa)**. Tu tarea será: -->
-
-<!-- 1. **Elegir un (1) ejercicio** de los propuestos (de un conjunto de ocho), y -->
-<!-- 2. Convertirlo en un **problema geomorfológico bien formulado** que culmine en dos productos: -->
-
-<!-- * Un **manuscrito científico reproducible**, y -->
-<!-- * Una **presentación oral breve** (diapositivas + defensa). -->
-
-<!-- El punto clave es que, aunque solo desarrolles **un ejercicio**, tu manuscrito debe evidenciar un recorrido por la teoría de la Unidad 1: **conceptos, supuestos, decisiones, evidencia, limitaciones y conclusiones**. -->
-
-<!-- # Qué debes producir (entregables) -->
-
-<!-- ## Entregable 1: Manuscrito reproducible (obligatorio) -->
-
-<!-- Un manuscrito breve en formato académico, construido a partir de la **plantilla del repositorio** o de una plantilla alternativa, con las siguientes secciones mínimas: -->
-
-<!-- * **Título**. -->
-<!-- * **Autor/a + Matrícula**. -->
-<!-- * **Resumen**. -->
-<!-- * **Introducción**. -->
-<!-- * **Marco teórico**. -->
-<!-- * **Metodología** (documental / conceptual). -->
-<!-- * **Resultados** (tablas, figuras, esquemas, mapas conceptuales, o producto cartográfico si aplica). Las figuras y tablas deben referirse en el texto, es decir, deben contar con "referencia cruzada". -->
-<!-- * **Discusión**. -->
-<!-- * **Conclusiones**. -->
-<!-- * **Referencias**. Las referencias deben insertarse automáticamente mediante la bibliografía del repositorio, usando formato BibTeX y colocando las entradas en un archivo .bib. -->
-<!-- * **Información suplementaria (si aplica)**. -->
-
-<!-- > Reiterando información anterior. La entrega del manuscrito se realiza en PDF generado a partir de RMarkdown, y por medio del repositorio personal haciendo (commit + push), siguiendo el flujo usual de la asignatura. Dispones de una plantilla RMarkdown (archivo `plantilla.Rmd`) en el repo, con la cual podrás crear tu PDF, pero puedes usar otras plantillas, siempre que generes tu PDF a partir de un RMarkdown, y siempre que tenga estructura típica de manuscrito (Título, Autor/a + Matrícula, Resumen, Introducción, Materiales y Métodos, Resultados, Discusión, Conclusiones, Referencias, Información Suplementaria). Muchas revistas científicas tienen plantillas RMarkdown a través del paquete rticles; puedes usar alguna de esas plantillas si lo deseas yendo al menú File > New File > R Markdown... > From Template. -->
-
-<!-- **Extensión sugerida**: 4–8 páginas (sin contar referencias). -->
-
-<!-- **Evita las listas de "viñetas" y las listas numeradas en la redacción.** -->
-
-<!-- ## Entregable 2: Presentación oral (obligatorio) -->
-
-<!-- Una exposición breve: -->
-
-<!-- * **17 minutos** por estudiante -->
-<!-- * Recomendado: 10 diapositivas -->
-<!-- * Debe explicar: problema, enfoque, evidencia principal (tabla/figura/mapas), conclusiones y limitaciones. -->
-
-<!-- # Cómo se organiza la práctica (ciclo estándar + entregas parciales) -->
-
-<!-- > Las entregas parciales son cortas y sirven para evitar "hacer todo el último día". -->
-
-<!-- ## Día 1 — Elección + delimitación del problema (entrega parcial 1) -->
-
-<!-- * Elige **un ejercicio** que no haya sido elegido por otra persona. -->
-<!-- * Redacta una **pregunta principal** y 2–3 subpreguntas. -->
-<!-- * Define el **corpus** (manuales, artículos, mapas, etc.), es decir, las fuentes que usarás. -->
-<!-- * Esboza las **tablas/figuras** que usarás. Si aplica, qué variables o elementos incluirás en tu manuscrito. -->
-
-<!-- **Entrega parcial 1 (1 página o menos):** -->
-
-<!-- * Título provisional. -->
-<!-- * Pregunta(s). -->
-<!-- * Corpus (lista de fuentes). -->
-<!-- * Boceto de tablas/figuras/mapas. -->
-
-<!-- ## Día 2 — Lectura + estructura del manuscrito (entrega parcial 2) -->
-
-<!-- * Lee el corpus seleccionado. -->
-<!-- * Escribe un **esquema** del manuscrito (bullets por sección). -->
-<!-- * Redacta el **marco teórico** en borrador. -->
-<!-- * Avanza las tablas/figuras/mapas. Deben referirse en el texto; figuras y tablas deben contar con "referencia cruzada". -->
-
-<!-- **Entrega parcial 2:** -->
-
-<!-- * Esquema (con subtítulos). -->
-<!-- * Primer borrador del marco teórico (mínimo 500–800 palabras). -->
-<!-- * Tablas/figuras/mapas en borrador. Deben referirse en el texto; figuras y tablas deben contar con "referencia cruzada". -->
-
-<!-- ## Día 3 — Resultados + discusión (entrega parcial 3) -->
-
-<!-- * Completa el producto central (tablas/figuras/mapas). -->
-<!-- * Redacta resultados y discusión. -->
-<!-- * Añade conclusiones y limitaciones. -->
-
-<!-- **Entrega parcial 3:** -->
-
-<!-- * Tablas/figuras finales (o mapas, si aplica). Deben referirse en el texto; figuras y tablas deben contar con "referencia cruzada". -->
-<!-- * Resultados + Discusión (borrador avanzado). -->
-
-<!-- ## Día 4 — Entrega final + defensa -->
-
-<!-- * Manuscrito final (PDF exportado desde RMarkdown). -->
-<!-- * Diapositivas. -->
-<!-- * Defensa oral. -->
-
-<!-- # Qué debes elegir (ejercicio) -->
-
-<!-- * Cada estudiante debe elegir **un solo ejercicio**. -->
-<!-- * No se permiten ejercicios repetidos entre personas. -->
-
-<!-- # Cómo usar los ejercicios (reglas del juego) -->
-
-<!-- 1. **No es un resumen de clase.** Es un manuscrito: plantea un problema, muestra evidencia (tablas/figuras, resultados), discute y concluye. -->
-<!-- 2. **Debes usar fuentes académicas.** Como mínimo: -->
-
-<!--    * 2 manuales / capítulos, y -->
-<!--    * 3 artículos científicos (o equivalentes) para sostener tu discusión. -->
-<!-- 3. **Tablas/figuras obligatorias** en todos los ejercicios. Éstas deben referirse en el texto; figuras y tablas deben contar con "referencia cruzada". -->
-<!-- 4. **No inventes contenido.** Toda afirmación importante debe estar sustentada. -->
-<!-- 5. **Usa IA, pero supervisa/controla lo que te dé.** No copies y pegues sin revisar. Verifica todo. -->
-<!-- 6. **Evita lo puramente opinativo.** Argumenta con base en el corpus y en conceptos geomorfológicos. -->
-
-
-
-
-
-
-
-
-
-
-
-## Referencias
+| Criterio                      | Nivel 1           | Nivel 2              | Nivel 3                | Nivel 4                                 |
+| ----------------------------- | ----------------- | -------------------- | ---------------------- | --------------------------------------- |
+| Claridad de la exposición     | Difícil de seguir | Comprensible         | Clara                  | Muy clara y bien estructurada           |
+| Presentación del problema     | Confusa           | Aceptable            | Clara                  | Muy clara y convincente                 |
+| Explicación del método        | Poco clara        | Parcial              | Correcta               | Muy bien explicada                      |
+| Presentación de resultados    | Débil             | Básica               | Adecuada               | Muy efectiva y bien apoyada visualmente |
+| Interpretación geomorfológica | Ausente           | Básica               | Adecuada               | Profunda y bien argumentada             |
+| Manejo del tiempo             | Fuera del tiempo  | Ligeramente fuera    | Ajustado               | Perfectamente ajustado                  |
+| Capacidad de defensa          | Responde poco     | Respuestas limitadas | Responde correctamente | Argumenta con claridad y seguridad      |
