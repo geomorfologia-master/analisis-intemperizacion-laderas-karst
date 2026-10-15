@@ -1,9 +1,9 @@
-PA03 · Intemperización, denudación, procesos de laderas, geomorfología
+PA04 · Intemperización, denudación, procesos de laderas, geomorfología
 climática y geomorfología kárstica<small><br>Geomorfología
 (GEO-114)<br>Universidad Autónoma de Santo Domingo (UASD)
 ================
 El Tali
-2026-04-06
+2026-10-15
 
 <!-- README.md se genera a partir de README.Rmd. Por favor, edita ese archivo. -->
 
@@ -165,8 +165,10 @@ las siguientes fuentes o tipos de información:
     geomorfología general, como las propias de la disciplina o tema
     específico.
 
-No se proporcionarán datos listos para usar. En esta ocasión, **cada
-estudiante debe generar y documentar su propio conjunto de datos**.
+No se proporcionarán datos listos para usar. **Cada estudiante debe
+generar y documentar su propio conjunto de datos**, pero no olvides que
+en el Drive de la asignatura hay muchos mapas disponibles que podrían
+servirte.
 
 - IMPORTANTE. Es necesario que conciertes previamente tus preguntas,
   objetivos, hipótesis, así como el o los dataset que usarás.
@@ -190,44 +192,519 @@ Puede tratarse de:
   pregunta(s) o a satisfacer tu(s) objetivo(s) de investigación.
 
 La delimitación del área debe ajustarse a los criterios de
-disponibilidad de datos.
+disponibilidad de datos y a la temática elegida. No tengo una “fórmula”
+mágica para evaluar si un área geográfica elegida es idónea, pero si lo
+conciertas conmigo, te resultará más fácil confirmar que estás eligiendo
+el ámbito correcto.
 
 ------------------------------------------------------------------------
 
 ## Selección del problema de investigación
 
-Debes elegir un problema que pueda analizarse mediante relaciones entre
-relieve, materiales, formas, procesos y variables ambientales.
+Debes elegir un tema/problema que pueda analizarse mediante relaciones
+entre relieve, materiales, formas, procesos y variables ambientales.
 
-Ejemplos orientativos, no obligatorios:
+**Se ofrecen múltiples temas para realizarse en “gabinete” o en campo
+cercano (aclaro, los de campo tienen la misma complejidad que los de
+gabinete).** Ejemplos orientativos, no obligatorios. **Cada propuesta
+debe convertirse en una pregunta delimitada, contrastable y viable con
+los datos disponibles.** Las áreas sugeridas son candidatas para
+explorar, no lugares donde se haya comprobado de antemano la existencia
+de todos los rasgos mencionados.
 
-- relación entre **pendiente, curvatura y litología** en áreas con
-  procesos de laderas;
-- contraste geomorfológico entre unidades sobre **calizas** y unidades
-  sobre **rocas no carbonatadas**;
-- distribución de **dolinas, depresiones cerradas o rugosidad** en
-  paisajes kársticos;
-- relación entre **precipitación**, relieve y evidencia indirecta de
-  denudación (de esto ya hubo un trabajo previo desde la geomorfometría
-  en la PA02, pero en este caso se requeriría disponer de evidencia
-  indirecta denudación, tales como profundidades de perfiles de
-  alteración, tasas de transporte de sedimentos, perfiles de suelo u
-  otras formas de evidencias parecidas);
-- comparación de variables geomorfométricas de laderas entre distintas
-  **unidades geomorfológicas**;
-- comparación de variables geomorfométricas entre distintas unidades o
-  subunidades de karst;
-- análisis espacial de condiciones topográficas asociadas a
-  **susceptibilidad a movimientos de ladera**;
-- influencia del relieve y del contexto climático sobre formas o
-  patrones del paisaje;
-- otros temas relacionados con inteperización/denudación, procesos de
-  laderas, geomorfología climática y/o geomorfología kárstica.
+Reitero esta cuestión: la mayoría de los temas o problemas está pensada
+para abordarse mediante trabajo de gabinete, sin necesidad de realizar
+visitas de campo. Si quieres elegir un tema/problema que implique
+trabajo de campo, perfecto, pero no es obligatorio.
 
-Reitero. Puedes proponer otro tema, siempre que esté dentro del marco
-del tema 3 y que tenga un enfoque cuantitativo claro.
+En los temas que requieran mediciones de campo, inventarios de procesos,
+análisis hidroquímicos o cronologías, **no basta con utilizar variables
+derivadas del DEM como sustitutos de las tasas o procesos reales**. Si
+esos datos no existen, debe reformularse la pregunta en términos de
+patrones, indicadores o potencial geomorfológico. **Se recomienda
+especialmente la obtención de datos primarios mediante trabajo de
+campo**, siempre que pueda realizarse con seguridad, recursos económicos
+y métodos reproducibles. Quienes realicen trabajo de campo podrían
+utilizar la [Ficha normalizada de observación
+geomorfológica](ficha-de-campo.Rmd), adaptándola a los procesos y
+variables de su investigación.
 
-------------------------------------------------------------------------
+### A. Intemperización, regolito y denudación
+
+1.  **Espesor del regolito y posición topográfica.** ¿Varía el espesor
+    observado de los perfiles de alteración entre cimas, laderas y
+    fondos de valle? Nota: si no encuentras información sobre espesor de
+    perfiles de alteración, no hagas este ejercicio.
+
+    - **Áreas sugeridas:** Bonao; Jarabacoa; Los Haitises.
+    - **Datos/enfoque:** Perfiles de campo o fuentes documentales; TPI,
+      pendiente y litología.
+
+2.  **Meteorización/erosión diferencial por litología.** ¿Difieren los
+    indicadores observables de alteración entre capas de rocas
+    sedimentarias?
+
+    - **Áreas sugeridas:** Cordillera Septentrional, sector Estero
+      Hondo; Sierra de Bahoruco, sector Las Abejas-Aceitillar-Pelempito.
+    - **Datos/enfoque:** Inventario de afloramientos, alteración
+      superficial, **resalte geomorfológico** y cartografía
+      geológica/geomorfológica.
+
+3.  **Fracturación y formas de alteración.** ¿Se asocian la densidad de
+    lineamientos y la orientación de fracturas con formas de
+    meteorización diferencial?
+
+    - **Áreas sugeridas:** San Cristóbal; Cordillera Septentrional;
+      Cordillera Central (Cinturón de Peralta, norte del valle de San
+      Juan).
+    - **Datos/enfoque:** Lineamientos verificados, orientaciones,
+      curvatura y litología.
+
+4.  **Meteorización esferoidal y bloques residuales.** ¿Qué condiciones
+    topográficas y litológicas acompañan la aparición de bloques
+    redondeados y formas residuales? Nota: si no hay suficiente
+    información de detalle, como mapas de escala grande, posibilidad
+    hacer fotointerpretación o fuentes fotográficas de “relieves
+    graníticos” (no sólo se refiere a los granitos, también se incluyen
+    otras como tonalitas), no elijas este ejercicio.
+
+    - **Áreas sugeridas:** Jarabacoa; Constanza; Pico Duarte; Valle de
+      Bao; Valle del Tetero.
+    - **Datos/enfoque:** Inventario fotointerpretado o de campo,
+      pendientes y mapas geológicos.
+
+5.  **Pedimentos y superficies de alteración.** ¿Cómo se diferencian las
+    superficies suavizadas y los escarpes asociados en un paisaje de
+    transición climática?
+
+    - **Áreas sugeridas:** Sierra de Bahoruco; Azua; San Juan.
+    - **Datos/enfoque:** Perfiles topográficos, pendientes, geología y
+      fotointerpretación; contrastar hipótesis de génesis, sistema
+      morfoclimático.
+
+6.  **Regolito, vegetación y relieve.** ¿Cómo se relacionan indicadores
+    de cubierta vegetal con sectores de acumulación o exposición de
+    regolito? Nota: si no hay información de detalle (mapas, fotos
+    oblicuas o aéreas, etc.), no hagas elijas este ejercicio.
+
+    - **Áreas sugeridas:** Ocoa; Sierra de Neiba.
+    - **Datos/enfoque:** NDVI multitemporal, pendiente, litología y
+      evidencia visual o cartográfica de superficie; no inferir
+      espesores de regolito desde NDVI.
+
+7.  **Denudación y exposición de roca.** ¿Qué proporción de
+    afloramientos y superficies con nula o escasa vegetación aparece
+    según pendiente y litología?
+
+    - **Áreas sugeridas:** Sierra de Bahoruco; Sierra de Neyba; Sierra
+      de Martín García; Cordillera Central.
+    - **Datos/enfoque:** Clasificación de cobertura, imágenes de alta
+      resolución y muestreo de validación con fuentes de alta resolución
+      (e.g. Google Earth).
+
+8.  **Denudación química en cuencas carbonatadas.** ¿Cómo cambia la
+    exportación disuelta estimada entre subcuencas con distinta
+    proporción de calizas?
+
+    - **Áreas sugeridas:** Los Haitises; cuencas de la Sierra de Neiba.
+    - **Datos/enfoque:** Requiere caudal y química de agua (Ca,
+      $HCO_3$), por lo que si estos datos no existen, no elijas este
+      ejercicio (puedes investigar en la página del Servicio Geológico
+      Nacional, pues durante el programa SYSMIN se colectaron datos de
+      esta naturaleza); DEM, geología y precipitación como controles.
+
+**Opciones adicionales de trabajo de campo cercano (Gran Santo
+Domingo).** Estas propuestas permiten campañas breves, sin
+desplazamientos interprovinciales; siempre se debe verificar acceso y
+**seguridad**.
+
+9.  **Alteritas rojizas en excavaciones urbanas.** ¿Qué variaciones de
+    color, textura, espesor visible y contacto con la caliza presentan
+    las acumulaciones de material residual en excavaciones profundas?
+    **\[Campo cercano\]**, cualquier excavación profunda con taludes
+    expuestos puede ser útil, **siempre que se tenga autorización y
+    seguridad**.
+
+    - **Áreas sugeridas:** Excavaciones autorizadas del Distrito
+      Nacional o Santo Domingo Este.
+    - **Datos/enfoque:** Registro fotográfico con escala, croquis
+      estratigráfico, fichas de observación y posición topográfica;
+      acceso exclusivamente autorizado; no asumir composición laterítica
+      sin análisis.
+
+10. **Pozas de descalcificación y discontinuidades.** ¿Se concentran las
+    pozas de alteración en fracturas, cavidades o irregularidades del
+    techo de las calizas arrecifales? **\[Campo cercano\]**
+
+- **Áreas sugeridas:** Afloramientos accesibles del Mirador del Sur y
+  cortes autorizados en Santo Domingo.
+- **Datos/enfoque:** Transectos, dimensiones visibles de bolsadas,
+  orientación de discontinuidades, fotografías y mapa geológico.
+
+11. **Alteración superficial bajo distinta cobertura urbana.** ¿Cambian
+    las señales superficiales de disolución y desagregación de calizas
+    entre espacios vegetados y expuestos? **\[Campo cercano\]**
+
+- **Áreas sugeridas:** Mirador del Sur y parques con afloramientos
+  calizos de Santo Domingo Este.
+- **Datos/enfoque:** Parcelas pareadas, cobertura, microrelieve y
+  observación de roca; sin inferir tasas de meteorización.
+
+### B. Procesos elementales y movimientos de ladera
+
+12. **Susceptibilidad relativa a deslizamientos.** ¿Qué combinación de
+    pendiente, curvatura, litología y cobertura caracteriza laderas con
+    deslizamientos inventariados?
+
+- **Áreas sugeridas:** Jarabacoa–Manabao; cuencas de los ríos Ocoa y
+  Banilejo; norte del valle de San Juan; cordillera Septentrional (área
+  de contacto entre margas y calizas, e.g. Carlos Díaz).
+- **Datos/enfoque:** Inventario independiente de deslizamientos, DEM,
+  lluvia y cobertura; evitar llamar riesgo a susceptibilidad.
+
+13. **Cicatrices de deslizamientos y lluvia extrema.** ¿Coinciden las
+    cicatrices cartografiadas con zonas de mayor lluvia acumulada
+    durante un evento?
+
+- **Áreas sugeridas:** Cordillera Septentrional; cuenca alta del Yuna.
+- **Datos/enfoque:** Imágenes antes/después, lluvia por evento y
+  verificación de cambios.
+
+14. **Caídas de roca y escarpes.** ¿Qué rasgos de pendiente, pie de
+    escarpe, relieve local y litología distinguen escarpes con depósitos
+    de caída?
+
+- **Áreas sugeridas:** Sierra de Neiba; Valle Nuevo; cualquier sistema
+  de escarpes pronunciados en rocas competentes (e.g. calizas), como
+  cañones fluviokársticos, valles de vertientes escarpadas.
+- **Datos/enfoque:** Inventario visual, acumulaciones en el pie del
+  escarpe, pendiente, relieve local, distancia a escarpes y geología.
+
+15. **Flujos de derrubios (*debris flow*) en cabeceras.** ¿Qué cabeceras
+    reúnen condiciones morfométricas favorables a flujos de derrubios?
+
+- **Áreas sugeridas:** Cuenca alta del Yaque del Norte; Ocoa; sierra de
+  Bahoruco-macizo de la Selle, por ejemplo, en cuenca del río Blanco,
+  valle del Limón (La Florida).
+- **Datos/enfoque:** Área contributiva, pendiente, concavidad,
+  materiales y evidencias de cicatrices y depósitos (e.g. imágenes
+  satelitales).
+
+**16. Reptación y perfiles de ladera.** ¿En qué sectores la forma de los
+perfiles es compatible con transporte difusivo del suelo? Nota: si no
+hay datos de perfiles de suelo, no elijas este tema.
+
+- **Áreas sugeridas:** Constanza; Jarabacoa.
+- **Datos/enfoque:** Perfiles, curvaturas y ajuste exploratorio de
+  modelos; no estimar tasas sin cronología ni datos de profundidad.
+
+**17. Lavado superficial y suelo desnudo.** ¿Cómo varían los indicadores
+de exposición y conectividad de laderas con la pendiente y la cobertura?
+
+- **Áreas sugeridas:** Azua (e.g. deslizamiento próximo a Las Charcas);
+  Baní.
+- **Datos/enfoque:** Imágenes multitemporales, cobertura, pendiente y
+  conectividad; distinguir potencial de erosión medida.
+
+**18. Rainsplash y cobertura vegetal.** ¿En qué medida la cobertura del
+suelo modifica indicadores de salpicadura en parcelas comparables? Nota:
+si no encuentras datos de detalle, no elijas este tema (se vale
+experimentar).
+
+- **Áreas sugeridas:** Lugares con mosaicos de cobertura vegetal
+  diferenciada.
+- **Datos/enfoque:** Requiere observación de campo o experimento
+  sencillo; lluvia, cobertura y pendiente.
+
+**19. Cortes de carretera y estabilidad de taludes.** ¿Qué
+características geomorfológicas presentan los taludes con fallas
+visibles a lo largo de un corredor vial?
+
+- **Áreas sugeridas:** Carretera Casabito–Constanza; carretera
+  Jarabacoa–Manabao; carretera cruce de Ocoa-San José de Ocoa; carretera
+  de Guayabal.
+- **Datos/enfoque:** Inventario de taludes, litología, geometría,
+  drenaje y cambios en imágenes.
+
+**20. Biogeomorfología y perturbación de laderas.** ¿Cambian las señales
+de erosión superficial entre laderas forestadas y deforestadas de
+topografía similar? Nota: si dispones de datos de campo, no elijas este
+tema.
+
+- **Áreas sugeridas:** Cuenca alta del Nizao; San José de Ocoa.
+- **Datos/enfoque:** Cobertura histórica, pares comparables, pendiente,
+  litología y validación de campo.
+
+**Opciones adicionales de trabajo de campo cercano (Gran Santo
+Domingo).** Estas propuestas permiten campañas breves, sin
+desplazamientos interprovinciales; siempre se debe verificar acceso y
+seguridad.
+
+**21. Desprendimientos y bloques al pie del paleoacantilado.** ¿Cómo se
+distribuyen bloques desprendidos y discontinuidades a lo largo de
+sectores accesibles del escarpe (pie del escarpe)? **\[Campo cercano\]**
+
+- **Áreas sugeridas:** Entorno del Mirador del Sur y corredor José
+  Contreras–avenida de Italia.
+- **Datos/enfoque:** Inventario visual desde zonas públicas seguras,
+  tamaño de bloques, fracturas, pendiente y fotografías; no aproximarse
+  a taludes inestables.
+
+**22. Lavado superficial en taludes urbanos.** ¿Qué diferencias
+presentan surcos y depósitos finos entre taludes vegetados y
+descubiertos? **\[Campo cercano\]**
+
+- **Áreas sugeridas:** Taludes accesibles en parques y corredores viales
+  de Santo Domingo.
+- **Datos/enfoque:** Transectos, cobertura, pendiente, longitud de
+  surcos y observaciones tras lluvia sin exponerse a tormentas.
+
+**23. Efecto de raíces y vegetación sobre microerosión.** ¿Cómo varían
+pedestales, suelo expuesto y pequeñas acumulaciones en laderas con
+distinta densidad de raíces? **\[Campo cercano\]**
+
+- **Áreas sugeridas:** Parque Mirador del Sur y espacios verdes con
+  laderas de Santo Domingo.
+- **Datos/enfoque:** Cuadrantes comparables, fotografías repetidas,
+  cobertura vegetal y microformas; evitar confundir correlación con
+  causalidad.
+
+### C. Geomorfología climática y modelos de ladera
+
+**24. Contraste húmedo–seco de formas de ladera.** ¿Difieren la
+curvatura y la rugosidad de laderas de litología comparable entre
+ambientes contrastantes?
+
+- **Áreas sugeridas:** Barahona–Sierra de Bahoruco; Azua–Ocoa.
+- **Datos/enfoque:** Precipitación de GEE, litología, pendiente y
+  curvaturas; controlar altitud y tectónica. Es preferible usar los
+  datos del mapa geológico escala 1:50,000, porque el mapa escala
+  1:250,000 no ofrece suficiente detalle para responder la pregunta.
+
+**25. Gradiente pluviométrico y exposición del sustrato.** ¿Cómo cambia
+la proporción de roca expuesta a lo largo de un gradiente de
+precipitación?
+
+- **Áreas sugeridas:** Vertientes de Sierra de Neiba; Sierra de
+  Bahoruco.
+- **Datos/enfoque:** Precipitación multianual, clasificación de
+  superficie, litología y elevación.
+
+**26. Relieves residuales y clima.** ¿Cómo varían tamaño, aislamiento y
+forma de relieves residuales (cerros testigos, *monadnock*, *inselberg*)
+entre sectores con diferente humedad?
+
+- **Áreas sugeridas:** Valle de San Juan; piedemontes de Azua.
+- **Datos/enfoque:** Inventario de formas, DEM, geología y clima; evitar
+  atribuciones genéticas automáticas.
+
+**27. Balance conceptual de producción y transporte de suelo.** ¿Qué
+configuraciones de ladera son compatibles con predominio relativo de
+producción o evacuación de regolito?
+
+- **Áreas sugeridas:** Cordillera Central, sector Constanza; Sierra de
+  Bahoruco, vertiente norte; sierra de Neyba, vertiente sur.
+- **Datos/enfoque:** Perfiles topográficos, observaciones de suelo/roca
+  y modelo conceptual de balance de masa.
+
+**28. Simulación de la evolución de laderas mediante modelos de difusión
+geomorfológica.** ¿Cómo cambia la geometría de perfiles de ladera bajo
+distintos coeficientes efectivos de transporte de sedimentos y
+horizontes temporales?
+
+- **Áreas sugeridas:** Laderas de los bordes de los valles intramontanos
+  de Constanza, Jarabacoa y San José de Ocoa.
+- **Datos/enfoque:** Extraer perfiles topográficos de un modelo digital
+  de elevaciones (DEM) y simular su evolución mediante la ecuación
+  diferencial en derivadas parciales (EDP) de difusión geomorfológica:
+
+$$
+  \frac{\partial z}{\partial t}=D\frac{\partial^2z}{\partial x^2}
+  $$
+
+- donde $z$ es la elevación (m), $t$ el tiempo (años), $x$ la distancia
+  horizontal (m) y $D$ el coeficiente efectivo de difusión (m²/año). La
+  primera derivada representa la tasa de cambio de elevación y la
+  segunda, la curvatura del perfil.
+
+- **Implementación en R o Python:** resolver numéricamente la ecuación
+  diferencial en derivadas parciales (EDP) de difusión geomorfológica
+  mediante diferencias finitas, utilizando `numpy` y `matplotlib` en
+  Python, o R base y `ggplot2` en R. Opcionalmente, utilizar `scipy`
+  (Python) o `deSolve` (R) para implementar métodos de integración
+  temporal más avanzados. Para trabajar con perfiles reales extraídos de
+  modelos digitales de elevaciones (DEM), utilizar `rasterio` y
+  `geopandas` en Python, o `terra` y `sf` en R. Comparar escenarios con
+  diferentes coeficientes efectivos de difusión ($D$), horizontes
+  temporales y condiciones de contorno. Evaluar los cambios en
+  pendiente, curvatura, relieve local y redistribución de materiales,
+  comprobando la estabilidad numérica y la conservación de masa cuando
+  corresponda.
+
+- **Se recomienda comenzar con perfiles sintéticos**, para comprender el
+  comportamiento del modelo, y posteriormente utilizar perfiles
+  topográficos reales. Los valores de $D$ deben tratarse como parámetros
+  hipotéticos salvo que existan datos independientes para calibrarlos.
+  Las simulaciones no deben interpretarse como reconstrucciones
+  verificadas de la evolución pasada del relieve.
+
+**29. Topografía, humedad y alteración.** ¿Se asocian posiciones
+topográficas potencialmente húmedas con indicadores independientes de
+alteración?
+
+- **Áreas sugeridas:** Bonao; cuenca alta del Yuna.
+- **Datos/enfoque:** TWI, pendiente, geología, humedad satelital y
+  observaciones de perfiles.
+
+**30. Ciclo del carbono y meteorización de silicatos.** ¿Qué magnitud de
+consumo potencial de CO2 resulta bajo escenarios explícitos de
+meteorización de silicatos?
+
+- **Áreas sugeridas:** Áreas de rocas silicatadas de la Cordillera
+  Central.
+- **Datos/enfoque:** Ejercicio de balance estequiométrico con tasas
+  bibliográficas; escenarios, no medición local.
+
+**Opciones adicionales de trabajo de campo cercano (Gran Santo
+Domingo).** Estas propuestas permiten campañas breves, sin
+desplazamientos interprovinciales; siempre se debe verificar acceso y
+seguridad.
+
+**31. Microclima urbano y meteorización de calizas.** ¿Difieren
+temperatura superficial, humedad y rasgos de alteración entre
+afloramientos sombreados y soleados? **\[Campo cercano\]**
+
+- **Áreas sugeridas:** Mirador del Sur y afloramientos públicos de Santo
+  Domingo Este.
+- **Datos/enfoque:** Transectos pareados, temperatura y humedad puntual,
+  orientación y exposición; no atribuir tasas a mediciones instantáneas.
+
+**32. Escorrentía urbana y redistribución de finos.** ¿Dónde se
+concentran pequeños depósitos y evidencias de lavado según
+microtopografía y superficies impermeables? **\[Campo cercano\]**
+
+- **Áreas sugeridas:** Parques y taludes urbanos del Gran Santo Domingo.
+- **Datos/enfoque:** Microperfiles, fotografías georreferenciadas,
+  coberturas y observación de rutas de escorrentía; GEE como contexto de
+  uso del suelo.
+
+**33. Perfiles del paleoacantilado y modelos conceptuales de ladera.**
+¿Qué tramos del escarpe presentan perfiles distintos y qué mecanismos
+podrían explicarlos? **\[Campo cercano\]**
+
+- **Áreas sugeridas:** Paleoacantilado del Mirador del Sur, puntos
+  públicos seguros.
+- **Datos/enfoque:** Perfiles con DEM y observaciones de campo; comparar
+  hipótesis de retroceso, desprendimiento y disolución sin estimar
+  velocidades.
+
+### D. Geomorfología kárstica y peligros asociados
+
+**34. Densidad de dolinas.** ¿Cómo varía la densidad de depresiones
+kársticas entre unidades carbonatadas?
+
+- **Áreas sugeridas:** Los Haitises; Sierra de Bahoruco.
+- **Datos/enfoque:** Inventario validado de depresiones, DEM, geología y
+  área por unidad.
+
+**35. Morfometría de dolinas.** ¿Qué relaciones existen entre área,
+profundidad relativa, elongación y orientación de dolinas?
+
+- **Áreas sugeridas:** Los Haitises; plataforma kárstica de Barahona.
+- **Datos/enfoque:** DEM de resolución apropiada, delimitación de
+  depresiones y validación visual.
+
+**36. Mogotes y relieve residual.** ¿Qué distribución de alturas
+relativas, pendientes y separación presentan los mogotes?
+
+- **Áreas sugeridas:** Los Haitises; entorno de Cotuí.
+- **Datos/enfoque:** Segmentación de formas, relieve local, pendientes y
+  cartografía geomorfológica.
+
+**37. Drenaje superficial y litología carbonatada.** ¿Cómo cambia la
+densidad de cauces cartografiados entre terrenos carbonatados y no
+carbonatados?
+
+- **Áreas sugeridas:** Los Haitises y áreas vecinas; Sierra de Neiba.
+- **Datos/enfoque:** Red hidrográfica independiente, litología y control
+  de escala; no equiparar ausencia de cauces con infiltración medida.
+
+**38. Susceptibilidad a subsidencia kárstica.** ¿Qué sectores reúnen
+indicadores geomorfológicos de posible subsidencia o colapso?
+
+- **Áreas sugeridas:** Entorno de Santo Domingo Este sobre calizas; Los
+  Haitises.
+- **Datos/enfoque:** Depresiones verificadas, urbanización, litología y
+  evidencias históricas; no estimar probabilidad sin eventos.
+
+**39. Control estructural del karst.** ¿Coinciden orientaciones de
+dolinas alargadas y valles secos con lineamientos estructurales?
+
+- **Áreas sugeridas:** Los Haitises; Sierra de Bahoruco.
+- **Datos/enfoque:** Análisis de orientación, cartografía de fallas y
+  control de sesgos de interpretación.
+
+**40. Cañones fluviokársticos y encajamiento de la red de drenaje.**
+¿Qué relaciones existen entre la profundidad de incisión, la geometría
+transversal de los cañones, la litología carbonatada y las estructuras
+geológicas?
+
+- **Áreas sugeridas:** Sierra de Bahoruco, especialmente su vertiente
+  sur, que está “plagada” de cañones; Cañón del río Yásica (Cordillera
+  Septentrional); sectores encajados del río Chavón (Cordillera
+  Oriental); cañones y gargantas en terrenos carbonatados de la Sierra
+  de Bahoruco, previa comprobación de su localización y características.
+- **Datos/enfoque:** DEM, perfiles transversales y longitudinales,
+  profundidad de incisión, anchura del fondo y de la parte superior del
+  cañón, pendiente de las paredes, cartografía geológica, fracturas y
+  fallas. Comparación entre tramos encajados en calizas y otros
+  materiales. Distinguir la incisión fluvial de los posibles efectos de
+  la disolución kárstica y del control estructural.
+
+**Opciones adicionales de trabajo de campo cercano (Gran Santo
+Domingo).** Estas propuestas permiten campañas breves, sin
+desplazamientos interprovinciales; siempre se debe verificar acceso y
+seguridad.
+
+**41. Inventario de microformas de lapiaz urbano.** ¿Qué tipos y
+dimensiones de surcos, oquedades y otras microformas de disolución
+aparecen en calizas arrecifales expuestas? **\[Campo cercano\]**
+
+- **Áreas sugeridas:** Mirador del Sur y afloramientos accesibles de
+  Santo Domingo Este.
+- **Datos/enfoque:** Cuadrantes, regla o escala fotográfica,
+  clasificación morfológica y relación con fracturas y cobertura.
+
+**42. Morfometría visible de dolinas y depresiones urbanas.** ¿Qué
+dimensiones, bordes y evidencias de modificación antrópica presentan
+depresiones kársticas accesibles? **\[Campo cercano\]**
+
+- **Áreas sugeridas:** Entorno de Los Tres Ojos y otros espacios
+  públicos de Santo Domingo Este.
+- **Datos/enfoque:** Perímetro desde senderos autorizados, fotografías,
+  cartografía y DEM; no entrar en cavidades ni acercarse a bordes
+  inseguros.
+
+**43. Endokarst observable y relación con fracturas.** ¿Qué
+orientaciones y formas de cavidades o espeleotemas son visibles desde
+recorridos permitidos? **\[Campo cercano\]**
+
+- **Áreas sugeridas:** Los Tres Ojos y sectores visitables del Mirador
+  del Sur.
+- **Datos/enfoque:** Croquis y fotografías sin tocar formaciones,
+  orientación cuando sea posible; distinguir cuevas de disolución y
+  abrigos de origen mixto.
+
+**Propuestas propias en Santo Domingo:** también puedes plantear otro
+problema de intemperización, karst o laderas en Santo Domingo y su
+entorno, siempre que delimites una pregunta contrastable, un área
+accesible y un protocolo de observación seguro. En excavaciones y obras
+se exige permiso explícito; no se autoriza ingresar en fosos, cavidades
+no habilitadas ni taludes inestables. Las observaciones de alteritas
+rojizas no bastan para identificarlas como lateritas sin evidencias
+mineralógicas o geoquímicas.
+
+## **Cómo elegir:** antes de reservar un tema, verifica la cobertura cartográfica, la resolución del DEM, la disponibilidad de una fuente en GEE y la existencia de evidencia independiente cuando la pregunta implique procesos o tasas. Puedes proponer otros temas pertinentes a la Unidad 3.
 
 ## Requisitos mínimos del análisis
 
@@ -325,8 +802,8 @@ El énfasis está en que haya una **pregunta geomorfológica** y una
 
 # Fundamentación conceptual del trabajo
 
-Esta práctica debe apoyarse en el contenido teórico del tema 3 y en los
-textos de referencia de la asignatura.
+Esta práctica debe apoyarse en el contenido teórico de la Unidad 3 y en
+los textos de referencia de la asignatura.
 
 Se espera que el estudiante relacione su caso de estudio con ideas como:
 
@@ -503,16 +980,13 @@ La prioridad es que puedas **explicar y defender** cada decisión tomada.
 - definir área de estudio;
 - localizar y reunir datos base;
 - explorar qué usarás en Google Earth Engine.
+- derivar variables desde el DEM;
+- integrar geología y geomorfología;
 
 ## Día 2 — Procesamiento y análisis
 
-- derivar variables desde el DEM;
-- integrar geología y geomorfología;
 - ejecutar el análisis cuantitativo;
 - producir mapas, tablas y gráficos.
-
-## Día 3 — Redacción y presentación
-
 - redactar el manuscrito;
 - revisar citas, figuras y tablas;
 - preparar diapositivas;

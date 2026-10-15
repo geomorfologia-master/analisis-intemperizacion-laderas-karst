@@ -1,0 +1,100 @@
+---
+title: "Ficha normalizada de observación geomorfológica"
+output: pdf_document
+date: "2026-10-12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Ficha normalizada de observación y medición geomorfológica de campo (opcional)
+
+Esta ficha se utiliza **cuando el problema seleccionado incluye trabajo de campo**. No sustituye los requisitos del manuscrito ni obliga a realizar una visita a quienes hayan elegido un estudio de gabinete. Su propósito es obtener datos primarios comparables entre equipos, con trazabilidad de los instrumentos y de las condiciones de observación. Se recomienda una ficha de **estación** por lugar y tantas filas de **medición** como observaciones individuales se efectúen. Se puede cumplimentar en papel, en una hoja de cálculo o adaptar a ODK.
+
+### A. Identificación y localización de la estación
+
+| Campo | Registro / instrucciones |
+|:--|:--|
+| `id_estacion` | Identificador único: `PA04-EQUIPO-AAAAMMDD-ESTNN` (sin espacios). |
+| `equipo` / `observadores` | Equipo y nombres de quienes levantan los datos. |
+| `fecha_hora` | Fecha y hora local con zona horaria (p. ej., `2026-10-12 09:30 -04:00`). |
+| `sector` / `municipio` | Topónimo, municipio y descripción de acceso. |
+| `latitud` / `longitud` | Coordenadas decimales, WGS84 (EPSG:4326); indicar método. |
+| `altitud_m` | Altitud en metros, si se dispone; indicar fuente y referencia vertical si se conoce. |
+| `precision_horizontal_m` | Precisión estimada o reportada por el receptor; no confundir con exactitud comprobada. |
+| `equipo_posicionamiento` | Teléfono, GNSS autónomo, RTK, PPK, etc.; registrar modelo y modo. |
+| `acceso_seguro` / `permiso` | Condiciones de acceso y autorización, si procede. |
+| `foto_contexto` | Nombre del archivo de fotografía general con escala o referencia espacial. |
+
+### B. Contexto geomorfológico y observaciones
+
+| Campo | Registro / instrucciones |
+|:--|:--|
+| `unidad_relieve` | Terraza arrecifal, paleoacantilado, ladera, depresión, relleno, etc. |
+| `litologia_observada` | Descripción macroscópica: caliza bioclástica, roca alterada, sedimento, etc. |
+| `fuente_geologia` | Unidad cartográfica y fuente, **separadas** de la litología efectivamente observada. |
+| `forma_principal` | Lapiaz, dolina, cavidad, perfil de alteración, surco, talud, etc. |
+| `material_superficial` | Roca expuesta, suelo, regolito, alterita, relleno sedimentario, cobertura antrópica. |
+| `cobertura_vegetal_pct` | Estimación visual (%) y método; dejar NA si no procede. |
+| `humedad_condiciones` | Seco/húmedo, lluvia reciente, escorrentía visible y otras condiciones relevantes. |
+| `evidencia_observada` | Rasgos directamente visibles, sin asignarles todavía un mecanismo causal. |
+| `interpretacion_hipotesis` | Proceso propuesto y explicación alternativa; grado de confianza. |
+| `alteracion_antropica` | Excavación, relleno, drenaje, hormigón, basura, cortes, etc. |
+| `croquis_fotos` | Croquis, orientación de vista y archivos fotográficos con escala. |
+
+### C. Registro de mediciones repetidas
+
+Crear **una fila por medición**; no mezclar unidades ni replicar valores generales de la estación como si fueran observaciones independientes.
+
+| Campo | Registro / instrucciones |
+|:--|:--|
+| `id_medicion` | Identificador único, vinculado a `id_estacion` (p. ej., `...-M001`). |
+| `id_estacion` | Clave que enlaza con la tabla de estaciones. |
+| `tipo_elemento` | Surco de lapiaz, diaclasa, clasto, perfil, muestra de suelo, agua, etc. |
+| `variable` | Anchura, profundidad, orientación, pendiente, pH, conductividad, masa, tamaño de grano, etc. |
+| `valor` / `unidad` | Valor numérico y unidad explícita (mm, cm, m, grados, µS/cm, g, etc.). |
+| `instrumento` | Modelo o descripción: cinta, calibre, clinómetro, GNSS, multiparamétrico, balanza. |
+| `resolucion_instrumento` | Mínima división o resolución mostrada; no equivale automáticamente a incertidumbre. |
+| `incertidumbre_estimada` | Valor ± y fundamento (especificación, repetibilidad, procedimiento). |
+| `replica` | Número de repetición, si se repite la medida. |
+| `metodo` | Cómo se definieron extremos, orientación, profundidad o punto de muestreo. |
+| `foto_detalle` / `observaciones` | Imagen con escala, incidencias, límites de la medición. |
+
+### D. Muestras físicas y mediciones de laboratorio (si procede)
+
+Registrar `id_muestra`, `id_estacion`, material, profundidad o posición, masa húmeda/seca (indicando procedimiento de secado), fracciones granulométricas de tamizado, pH, conductividad, temperatura, fecha de análisis, instrumento y calibración. Para agua, registrar también el punto y la condición de muestreo. **No interpretar automáticamente el color rojizo como prueba de lateritización**, ni una lectura puntual de pH o conductividad como tasa de disolución o denudación.
+
+### E. Control de calidad, seguridad y entrega
+
+- **Antes de salir:** definir pregunta, unidades, protocolo de selección de estaciones y tamaño de muestra; comprobar permisos y calibración; preparar códigos de estación y muestras.
+- **En campo:** fotografiar con escala, registrar valores originales sin redondeos arbitrarios, separar datos faltantes (`NA`) de ceros reales y anotar condiciones de medición. La brújula del teléfono requiere comprobación frente a interferencias magnéticas.
+- **Después:** conservar los datos originales y un diccionario de variables; revisar duplicados, unidades, coordenadas y archivos fotográficos; documentar correcciones en el cuaderno reproducible.
+- **Seguridad:** no entrar en fosos de obra, cuevas no habilitadas, bordes de dolinas ni taludes inestables; observar desde áreas públicas o expresamente autorizadas. No tomar muestras en espacios protegidos sin permiso.
+- **Entrega para estudios de campo:** anexar al repositorio dos tablas (`estaciones.csv` y `mediciones.csv`), fotografías o sus referencias y una descripción del método. Si se recolectaron muestras, agregar `muestras.csv`. Evitar publicar datos personales o localizaciones sensibles sin justificación.
+
+**Ejemplo de registro:** una estación sobre caliza arrecifal puede contener diez mediciones independientes de anchura y profundidad de surcos de lapiaz; la pendiente general, litología y coordenadas pertenecen a la estación, mientras que cada surco recibe su propio `id_medicion`. La existencia de diez surcos en una estación no equivale a diez estaciones independientes.
+
+## Instrumentos de campo
+
+Para el trabajo de campo, se dispone de diversos instrumentos que pueden facilitarse a los estudiantes, entre ellos tamices, balanza de precisión, multiparamétricos de suelo y agua, y receptores GNSS. También pueden utilizarse instrumentos sencillos o de fabricación propia (ver tabla en la sección siguiente), como clinómetros, cintas métricas, reglas graduadas, cuadrantes de muestreo, infiltrómetros, pluviómetros y dispositivos para medir erosión superficial. Los teléfonos móviles pueden servir como apoyo para registrar coordenadas aproximadas, orientaciones, pendientes, fotografías georreferenciadas y observaciones sistemáticas, teniendo en cuenta sus limitaciones de precisión. **No se exige equipamiento sofisticado: se valorará la capacidad de formular una pregunta investigable, diseñar un protocolo de medición adecuado, documentar la incertidumbre y obtener evidencias que permitan contrastar las hipótesis planteadas.**
+
+### Instrumentos adicionales para trabajo de campo
+
+| Instrumento | Aplicación geomorfológica | Costo orientativo |
+|---|---|---:|
+| Clinómetro manual o aplicación móvil | Pendientes, inclinación de estratos, perfiles de ladera | US$0–15 |
+| Cinta métrica de 30–50 m | Perfiles, dimensiones de dolinas, microformas y taludes | US$10–20 |
+| Calibrador digital | Anchura y profundidad de pequeñas microformas kársticas | US$5–15 |
+| Infiltrómetro de anillo simple (DIY) | Infiltración en suelos y rellenos de depresiones | US$5–20 |
+| Penetrómetro de bolsillo | Resistencia relativa de suelos y materiales blandos | US$15–40 |
+| Termómetro infrarrojo | Temperatura superficial de roca, suelo y pavimento | US$10–25 |
+| Medidor de humedad de suelo | Contrastes de humedad entre posiciones geomorfológicas | US$10–30 |
+| Anillos de muestreo volumétrico | Densidad aparente y porosidad estimada de suelos | US$5–15 |
+| Regla de erosión o pines de erosión | Cambios locales de elevación superficial mediante mediciones repetidas | US$5–15 |
+| Peine de perfiles o perfilómetro (DIY) | Rugosidad de roca, lapiaz y pequeñas superficies | US$5–20 |
+| Lupa geológica de 10× | Texturas, minerales, bioclastos y superficies de alteración | US$5–15 |
+| Carta de colores Munsell para suelos | Descripción normalizada del color de alteritas y rellenos | Variable; las cartas originales son caras |
+
+*Nota:* Los precios son aproximados y no corresponden a cotizaciones verificadas. Varios instrumentos pueden fabricarse con materiales económicos (DIY).
