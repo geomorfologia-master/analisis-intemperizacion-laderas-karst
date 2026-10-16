@@ -138,9 +138,13 @@ Dominicana, enmarcado en **uno** de los siguientes ejes:
 - **Geomorfología kárstica**
 - **Geomorfología climática**
 
-El tema específico lo eliges tú, pero recuerda que no vale con reservar
-un tópico concreto, debes convertir tu tema en una **pregunta clara,
-concreta y medible**.
+Para cada uno de los ejes anteriores, preparé una lista de
+temas/problemas que verás en la sección “Temas/problemas de
+investigación”. El tema específico lo eliges tú (hay más de 40 para
+elegir), pero recuerda que no vale con reservar un tópico concreto,
+debes convertir tu tema en una **pregunta clara, concreta y medible**.
+Tan pronto elijas tu tema/problema, anúncialo en el foro en el hilo
+correspondiente.
 
 No se aceptarán trabajos puramente descriptivos ni trabajos en los que
 el tema no pueda traducirse en variables observables o analizables
@@ -199,7 +203,7 @@ el ámbito correcto.
 
 ------------------------------------------------------------------------
 
-## Selección del problema de investigación
+## Temas/problemas de investigación
 
 Debes elegir un tema/problema que pueda analizarse mediante relaciones
 entre relieve, materiales, formas, procesos y variables ambientales.
@@ -210,7 +214,8 @@ gabinete).** Ejemplos orientativos, no obligatorios. **Cada propuesta
 debe convertirse en una pregunta delimitada, contrastable y viable con
 los datos disponibles.** Las áreas sugeridas son candidatas para
 explorar, no lugares donde se haya comprobado de antemano la existencia
-de todos los rasgos mencionados.
+de todos los rasgos mencionados. Tan pronto elijas tu tema/problema,
+anúncialo en el foro en el hilo correspondiente.
 
 Reitero esta cuestión: la mayoría de los temas o problemas está pensada
 para abordarse mediante trabajo de gabinete, sin necesidad de realizar
@@ -704,7 +709,14 @@ no habilitadas ni taludes inestables. Las observaciones de alteritas
 rojizas no bastan para identificarlas como lateritas sin evidencias
 mineralógicas o geoquímicas.
 
-## **Cómo elegir:** antes de reservar un tema, verifica la cobertura cartográfica, la resolución del DEM, la disponibilidad de una fuente en GEE y la existencia de evidencia independiente cuando la pregunta implique procesos o tasas. Puedes proponer otros temas pertinentes a la Unidad 3.
+**Cómo elegir:** antes de reservar un tema, verifica la cobertura
+cartográfica, la resolución del DEM, la disponibilidad de una fuente en
+GEE y la existencia de evidencia independiente cuando la pregunta
+implique procesos o tasas. Puedes proponer otros temas pertinentes a la
+Unidad 3. Tan pronto elijas tu tema/problema, anúncialo en el foro en el
+hilo correspondiente.
+
+------------------------------------------------------------------------
 
 ## Requisitos mínimos del análisis
 
