@@ -3,7 +3,7 @@ climática y geomorfología kárstica<small><br>Geomorfología
 (GEO-114)<br>Universidad Autónoma de Santo Domingo (UASD)
 ================
 El Tali
-2026-10-15
+2026-10-16
 
 <!-- README.md se genera a partir de README.Rmd. Por favor, edita ese archivo. -->
 
